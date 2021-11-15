@@ -1,0 +1,64 @@
+﻿@page
+@model HeyDapper.WebUI.Pages.Company.ListModel
+@{
+    ViewData["Title"] = "Company list";
+}
+
+<div class="container" style="margin-bottom:8%;">
+    <div class="border shadow" style="padding:30px;">
+        <div class="row">
+            <div class="col-9">
+                <h5><i class="fa fa-list-alt"></i>&nbsp;Company List</h5>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-success form-control" asp-page="upsert">
+                    <i class="fas fa-plus-circle"></i>&nbsp;Add
+                </a>
+            </div>
+        </div>
+        <hr />
+        @if (!string.IsNullOrEmpty(Model.Updated))
+        {
+            <div class="alert alert-info alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@Model.Updated</strong>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Add))
+        {
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@Model.Add</strong>
+            </div>
+        }
+        <div class="table-responsive">
+            <div class="col-sm-12">
+
+                <table class="table table-responsive table-striped" id="companies" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Post Code</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/companies.js"></script>
+}
